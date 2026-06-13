@@ -3,33 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BLUE SPORT</title>
+    <title>منصة شبكتي - البث المباشر</title>
     <style>
-        body { background-color: #050505; color: white; font-family: sans-serif; text-align: center; margin: 0; padding: 20px; }
-        .container { max-width: 800px; margin: auto; }
-        .video-box { background: #111; padding: 10px; border-radius: 20px; border: 2px solid #a855f7; margin-bottom: 20px; }
-        iframe { width: 100%; height: 450px; border-radius: 15px; border: none; }
-        button { padding: 15px 30px; margin: 5px; border-radius: 30px; border: none; background: #a855f7; color: white; font-weight: bold; cursor: pointer; }
+        body { margin: 0; background: #050505; color: white; font-family: sans-serif; }
+        .container { display: flex; flex-direction: column; height: 100vh; }
+        .player-area { flex: 1; width: 100%; background: #000; }
+        iframe { width: 100%; height: 100%; border: none; }
+        .nav { background: #111; padding: 15px; display: flex; justify-content: space-around; }
+        .btn { padding: 10px 20px; background: #a855f7; border-radius: 10px; cursor: pointer; color: white; border: none; }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>BLUE SPORT TV</h1>
-        <div class="video-box">
-            <!-- هنا يظهر البث -->
-            <iframe id="videoPlayer" src="https://bluesport.fun/" allowfullscreen></iframe>
+        <!-- منطقة البث -->
+        <div class="player-area">
+            <iframe id="main-frame" src="https://bluesport.fun/" allow="autoplay; fullscreen"></iframe>
         </div>
 
-        <div id="channels">
-            <button onclick="changeChannel('https://bluesport.fun/')">beIN SP 1</button>
-            <button onclick="changeChannel('https://example.com/other-channel')">قناة أخرى</button>
+        <!-- أزرار القنوات -->
+        <div class="nav">
+            <button class="btn" onclick="changeChannel('https://bluesport.fun/channel1')">BeIN 1</button>
+            <button class="btn" onclick="changeChannel('https://bluesport.fun/channel2')">BeIN 2</button>
+            <button class="btn" onclick="changeChannel('https://bluesport.fun/channel3')">BeIN 3</button>
         </div>
     </div>
 
     <script>
         function changeChannel(url) {
-            document.getElementById('videoPlayer').src = url;
+            document.getElementById('main-frame').src = url;
         }
     </script>
 </body>
